@@ -2,7 +2,7 @@ const transform = (data) => {
 
 	console.log({
 		...data,
-		i: 1
+		i: 1,
 	})
 	return 'this is baseball'
 

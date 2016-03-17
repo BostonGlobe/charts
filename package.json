@@ -1,5 +1,5 @@
 {
-  "name": "charts",
+  "name": "chartbuilder-charts",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "build:es6": "rollup -c        -i index.js -o build/index.es6.js",
     "build": "npm run clean && npm run build:cjs && npm run build:es6",
     "prepublish": "BABEL_ENV=rollup npm run lint && npm run build",
-		"lint": "eslint transforms"
+		"lint": "eslint src"
   },
   "repository": {
     "type": "git",

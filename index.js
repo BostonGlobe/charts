@@ -1,1 +1,1 @@
-export { default as baseballSpraychart } from './transforms/baseball-spraychart.js'
+export { default as baseballSpraychart } from './src/transforms/baseball-spraychart.js'
