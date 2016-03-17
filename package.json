@@ -1,0 +1,36 @@
+{
+  "name": "charts",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "build:cjs": "rollup -c -f cjs -i index.js -o build/index.js",
+    "build:es6": "rollup -c        -i index.js -o build/index.es6.js",
+    "build": "npm run clean && npm run build:cjs && npm run build:es6",
+    "prepublish": "BABEL_ENV=rollup npm run lint && npm run build",
+		"lint": "eslint transforms"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BostonGlobe/charts.git"
+  },
+  "author": "Gabriel Florit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BostonGlobe/charts/issues"
+  },
+  "homepage": "https://github.com/BostonGlobe/charts#readme",
+  "devDependencies": {
+    "babel-eslint": "^6.0.0-beta.6",
+    "babel-plugin-syntax-object-rest-spread": "^6.5.0",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "eslint": "^2.4.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-react": "^4.2.3",
+    "rimraf": "^2.5.2",
+    "rollup": "^0.25.4",
+    "rollup-plugin-babel": "^2.4.0"
+  }
+}
