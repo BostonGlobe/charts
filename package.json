@@ -2,7 +2,8 @@
   "name": "chartbuilder-charts",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
+  "jsnext:main": "build/index.es6.js",
   "scripts": {
     "clean": "rimraf build",
     "build:cjs": "rollup -c -f cjs -i index.js -o build/index.js",
