@@ -73,7 +73,7 @@ const transform = (data, cb) => {
 		if (err) cb(err)
 		else {
 			const shots = data.map(createShotObj)
-			cb(null, { averages, shots })
+			cb(null, { data: { averages, shots } })
 		}
 	})
 }
