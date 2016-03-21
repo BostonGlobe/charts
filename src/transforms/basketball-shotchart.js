@@ -19,7 +19,7 @@ const getSeason = () => {
 
 	const startYear = year - offset
 
-	const endYearSuffix = parseInt(startYear.toString().substring(2, 4)) + 1
+	const endYearSuffix = +(startYear.toString().substring(2, 4)) + 1
 
 	return `${startYear}${endYearSuffix}`
 }
@@ -67,8 +67,7 @@ const createShotObj = (datum) => {
 
 const transform = (data, cb) => {
 	const season = getSeason()
-	const averagesURL = '../../../test-data/basketball-shotchart-averages-zones.json'
-	// const averagesURL = `path/to/averages-${season}.json`
+	const averagesURL = `../utils/basketball-shotchart-test-${season}.json`
 	getJSON(averagesURL, (err, averages) => {
 		if (err) cb(err)
 		else {
