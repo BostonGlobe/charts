@@ -1,12 +1,12 @@
 import { getZoneFromShot } from 'nba-shot-zones'
 import getJSON from 'get-json-lite'
+import zoneGroups from '../utils/basketball-zone-groups.js'
 
 const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
 
 const getZoneGroup = (zone) => {
-	// tbd
-	console.log('tbd')
-	return zone
+	const filtered = zoneGroups.filter(group => group.zones.indexOf(zone) > -1)
+	return filtered.map(group => group.name)
 }
 
 const getSeason = () => {
