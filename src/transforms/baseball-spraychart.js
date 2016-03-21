@@ -1,10 +1,10 @@
-const transform = (data) => {
+const transform = (data, cb) => {
 
 	console.log({
 		...data,
 		i: 1,
 	})
-	return 'this is baseball'
+	cb(null, 'this is baseball')
 
 }
 
