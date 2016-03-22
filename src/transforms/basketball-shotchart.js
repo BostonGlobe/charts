@@ -1,6 +1,6 @@
 import { getZoneFromShot } from 'nba-shot-zones'
-import getJSON from 'get-json-lite'
-import zoneGroups from '../utils/basketball-zone-groups.js'
+import zoneGroups from '../utils/basketball-zone-groups'
+import getAverages from '../utils/basketball-averages'
 
 const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
 
@@ -8,21 +8,6 @@ const getZoneGroup = (zone) => {
 	const filtered = zoneGroups.filter(group => group.zones.indexOf(zone) > -1)
 	return filtered.map(group => group.name)
 }
-
-// const getSeason = () => {
-// 	const d = new Date()
-// 	const year = d.getFullYear()
-// 	const month = d.getMonth()
-
-// 	// the season ends in june and starts in november, so checking before sept is safe
-// 	const offset = month < 8 ? 1 : 0
-
-// 	const startYear = year - offset
-
-// 	const endYearSuffix = +(startYear.toString().substring(2, 4)) + 1
-
-// 	return `${startYear}${endYearSuffix}`
-// }
 
 const createShotObj = (datum) => {
 	// everything we (might) need
@@ -66,9 +51,7 @@ const createShotObj = (datum) => {
 }
 
 const transform = (data, cb) => {
-	const season = data[0].season
-	const averagesURL = `path/to/basketball-shotchart-test-${season}.json`
-	getJSON(averagesURL, (err, averages) => {
+	getAverages(data, (err, averages) => {
 		if (err) cb(err)
 		else {
 			const shots = data.map(createShotObj)
