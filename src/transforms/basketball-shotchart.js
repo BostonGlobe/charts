@@ -9,20 +9,20 @@ const getZoneGroup = (zone) => {
 	return filtered.map(group => group.name)
 }
 
-const getSeason = () => {
-	const d = new Date()
-	const year = d.getFullYear()
-	const month = d.getMonth()
+// const getSeason = () => {
+// 	const d = new Date()
+// 	const year = d.getFullYear()
+// 	const month = d.getMonth()
 
-	// the season ends in june and starts in november, so checking before sept is safe
-	const offset = month < 8 ? 1 : 0
+// 	// the season ends in june and starts in november, so checking before sept is safe
+// 	const offset = month < 8 ? 1 : 0
 
-	const startYear = year - offset
+// 	const startYear = year - offset
 
-	const endYearSuffix = +(startYear.toString().substring(2, 4)) + 1
+// 	const endYearSuffix = +(startYear.toString().substring(2, 4)) + 1
 
-	return `${startYear}${endYearSuffix}`
-}
+// 	return `${startYear}${endYearSuffix}`
+// }
 
 const createShotObj = (datum) => {
 	// everything we (might) need
@@ -66,8 +66,8 @@ const createShotObj = (datum) => {
 }
 
 const transform = (data, cb) => {
-	const season = getSeason()
-	const averagesURL = `../utils/basketball-shotchart-test-${season}.json`
+	const season = data[0].season
+	const averagesURL = `path/to/basketball-shotchart-test-${season}.json`
 	getJSON(averagesURL, (err, averages) => {
 		if (err) cb(err)
 		else {
