@@ -51,9 +51,13 @@ const createShotObj = (datum) => {
 }
 
 const transform = (data) => {
-	const averages = getAverages(data)
-	const shots = data.map(createShotObj)
-	return { data: { averages, shots } }
+	if (data.length) {
+		const averages = getAverages(data)
+		const shots = data.map(createShotObj)
+		return { data: { averages, shots } }
+	}
+	return data
+
 }
 
 export default transform

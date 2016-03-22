@@ -189,7 +189,7 @@ function cleanShot(d) {
 
 // remove first row and filter to current season
 function clean(data) {
-	const season = d[1].season
+	const season = data[1].season
 	return data
 		.filter(d => d[1].season === season)
 		.map(cleanShot)
@@ -202,7 +202,7 @@ function getDates(data) {
 	}, {})
 
 	// sort and flatten
-	return Object.keys(dateObject).sort((a,b) => (+a) - (+b))
+	return Object.keys(dateObject).sort((a, b) => (+a) - (+b))
 }
 
 function calculate(data) {
@@ -211,7 +211,7 @@ function calculate(data) {
 	// get all shots on each date
 	const shotsOnEachDate = dates.map(date => {
 		const shots = data.filter(d => d.gameDate === date)
-		return {date, shots}
+		return { date, shots }
 	})
 
 	// calculate average for each zone on each date
@@ -222,7 +222,7 @@ function calculate(data) {
 }
 
 function getAverages(data) {
-	const cleaned = clean(parsed)
+	const cleaned = clean(data)
 	const calculated = calculate(cleaned)
 	return calculated
 }
