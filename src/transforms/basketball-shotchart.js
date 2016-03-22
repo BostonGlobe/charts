@@ -50,14 +50,10 @@ const createShotObj = (datum) => {
 	}
 }
 
-const transform = (data, cb) => {
-	getAverages(data, (err, averages) => {
-		if (err) cb(err)
-		else {
-			const shots = data.map(createShotObj)
-			cb(null, { data: { averages, shots } })
-		}
-	})
+const transform = (data) => {
+	const averages = getAverages(data)
+	const shots = data.map(createShotObj)
+	return { data: { averages, shots } }
 }
 
 export default transform

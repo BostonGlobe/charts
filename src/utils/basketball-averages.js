@@ -221,10 +221,10 @@ function calculate(data) {
 	return zoneAverages
 }
 
-function getAverages(data, cb) {
+function getAverages(data) {
 	const cleaned = clean(parsed)
 	const calculated = calculate(cleaned)
-	cb(null, calculated)
+	return calculated
 }
 
 export default getAverages
