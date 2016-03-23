@@ -13,7 +13,7 @@ function calculateDistanceBin(distance) {
 
 function toPercent(numerator, denominator) {
 	if (denominator === 0) return 0
-	else return +((numerator / denominator * 1000) / 10).toFixed(2)
+	return +((numerator / denominator * 1000) / 10).toFixed(2)
 }
 
 function getZoneShots(zoneName, shots) {
