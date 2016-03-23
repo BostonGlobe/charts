@@ -56,10 +56,10 @@ const createShotObj = (datum) => {
 const transform = (data) => {
 	if (data.length) {
 		const averages = getAverages(data)
-		const shots = clean(data).map(createShotObj)
-		return { data: { averages, shots } }
+		const rows = clean(data).map(createShotObj)
+		return { averages, rows }
 	}
-	return data
+	return { rows: [] }
 
 }
 
