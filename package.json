@@ -32,13 +32,13 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-react": "^4.2.3",
     "faucet": "0.0.1",
-    "nba-shot-zones": "^1.0.1",
     "rimraf": "^2.5.2",
     "rollup": "^0.25.4",
     "rollup-plugin-babel": "^2.4.0",
     "tape": "^4.5.1"
   },
   "dependencies": {
-    "d3-array": "^0.7.1"
+    "d3-array": "^0.7.1",
+    "nba-shot-zones": "^1.0.1"
   }
 }
