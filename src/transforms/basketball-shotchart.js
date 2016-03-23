@@ -9,21 +9,26 @@ const getZoneGroup = (zone) => {
 	return filtered.map(group => group.name)
 }
 
+function clean(data) {
+	// the row is column definitions, so must get season from second row
+	const season = data[1].season
+	return data
+		.filter(d => d.season === season)
+}
+
 const createShotObj = (datum) => {
 	// everything we (might) need
 	const season = datum.season
 	const gameDate = datum.gamedate
-	const opponent = datum.opponent
+	const team = datum.team.toLowerCase()
+	const opponent = datum.opponent.toLowerCase()
 	const home = datum['home-away'] === 'home'
 	const quarter = +datum.quarter
 	const time = datum.time
 	const player = datum.player
 	const shotX = +datum['shot-x']
 	const shotY = +datum['shot-y']
-	// can probably remove
-	const fastbreak = datum.fastbreak
-	const secondChance = datum['second-chance']
-	const offTurnover = datum['off-turnover']
+
 
 	const distance = +calculateDistance(shotX, shotY)
 	const zone = getZoneFromShot({ x: shotX, y: shotY })
@@ -33,6 +38,7 @@ const createShotObj = (datum) => {
 	return {
 		season,
 		gameDate,
+		team,
 		opponent,
 		home,
 		quarter,
@@ -40,9 +46,6 @@ const createShotObj = (datum) => {
 		player,
 		shotX,
 		shotY,
-		fastbreak,
-		secondChance,
-		offTurnover,
 		made,
 		distance,
 		zone,
@@ -53,7 +56,7 @@ const createShotObj = (datum) => {
 const transform = (data) => {
 	if (data.length) {
 		const averages = getAverages(data)
-		const shots = data.map(createShotObj)
+		const shots = clean(data).map(createShotObj)
 		return { data: { averages, shots } }
 	}
 	return data

@@ -11,6 +11,11 @@ function calculateDistanceBin(distance) {
 	return +Math.min(maxDistanceBin, Math.floor(distance / distanceBinSize))
 }
 
+function toPercent(numerator, denominator) {
+	if (denominator === 0) return 0
+	else return +((numerator / denominator * 1000) / 10).toFixed(2)
+}
+
 function getZoneShots(zoneName, shots) {
 	/*
 		shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
@@ -55,7 +60,7 @@ function getZoneAverageThroughDay(days) {
 	// eslint-disable-next-line guard-for-in
 	for (const i in reduced) {
 		const current = reduced[i]
-		const percent = +((current.made / current.total * 1000) / 10).toFixed(2)
+		const percent = toPercent(current.made, current.total)
 
 		current.percent = percent
 	}
