@@ -10,7 +10,8 @@
     "build:es6": "rollup -c        -i index.js -o build/index.es6.js",
     "build": "npm run clean && npm run build:cjs && npm run build:es6",
     "prepublish": "BABEL_ENV=rollup npm run lint && npm run build",
-    "lint": "eslint src"
+    "lint": "eslint src",
+		"test": "node test/index.js | faucet"
   },
   "repository": {
     "type": "git",
@@ -30,10 +31,12 @@
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-react": "^4.2.3",
+    "faucet": "0.0.1",
     "nba-shot-zones": "^1.0.1",
     "rimraf": "^2.5.2",
     "rollup": "^0.25.4",
-    "rollup-plugin-babel": "^2.4.0"
+    "rollup-plugin-babel": "^2.4.0",
+    "tape": "^4.5.1"
   },
   "dependencies": {
     "d3-array": "^0.7.1"

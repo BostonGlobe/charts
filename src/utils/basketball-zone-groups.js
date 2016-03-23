@@ -80,4 +80,4 @@ const zoneGroups = [
 	},
 ]
 
-export default { zoneGroups }
+export default zoneGroups

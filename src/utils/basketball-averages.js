@@ -116,7 +116,7 @@ function cleanShot(d) {
 function clean(data) {
 	const season = data[1].season
 	return data
-		.filter(d => d[1].season === season)
+		.filter(d => d.season === season)
 		.map(cleanShot)
 }
 
