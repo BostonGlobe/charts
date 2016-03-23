@@ -16,9 +16,9 @@
 						"percent": 0
 					},
 					"high post": {
-						"made": 0,
-						"total": 0,
-						"percent": 0
+						"made": 1,
+						"total": 1,
+						"percent": 100
 					},
 					"midrange (lower right)": {
 						"made": 0,
@@ -26,9 +26,9 @@
 						"percent": 0
 					},
 					"midrange (lower left)": {
-						"made": 1,
-						"total": 1,
-						"percent": 100
+						"made": 0,
+						"total": 0,
+						"percent": 0
 					},
 					"midrange (upper right)": {
 						"made": 0,
