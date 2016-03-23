@@ -1,5 +1,4 @@
 import { getZoneFromShot, getZones } from 'nba-shot-zones'
-import { range } from 'd3-array'
 
 const distanceBinSize = 4
 const maxDistanceBin = Math.floor(32 / distanceBinSize)
@@ -24,18 +23,6 @@ function getZoneShots(zoneName, shots) {
 		}), { made: 0, total: 0 })
 }
 
-function getDistanceShots(distanceBin, shots) {
-	/*
-		shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
-	*/
-	return shots
-		.filter(shot => shot.distanceBin === distanceBin)
-		.reduce((previous, datum) => ({
-			made: previous.made + (datum.made ? 1 : 0),
-			total: previous.total + 1,
-		}), { made: 0, total: 0 })
-}
-
 function getZoneAverageThroughDay(days) {
 	/* [{
 		date: 20150101,
@@ -49,6 +36,7 @@ function getZoneAverageThroughDay(days) {
 
 	// input: ['one', 'two', 'three']
 	// output: {'one': { made: 0, total: 0 }, 'two': { made: 0, total: 0 } ...
+
 	const emptyZones = zoneNames.reduce((previous, current) => ({
 		...previous,
 		[current]: { made: 0, total: 0 },
@@ -56,51 +44,20 @@ function getZoneAverageThroughDay(days) {
 
 	const reduced = days.reduce((previous, day) => {
 		day.zones.forEach(zone => {
+			// eslint-disable-next-line no-param-reassign
 			previous[zone.zoneName].made += zone.values.made
+			// eslint-disable-next-line no-param-reassign
 			previous[zone.zoneName].total += zone.values.total
 		})
 		return previous
 	}, emptyZones)
 
-	for (let i in reduced) {
-		const percent = +((reduced[i].made / reduced[i].total * 1000) / 10).toFixed(2)
-		const made = reduced[i].made
-		const total = reduced[i].total
+	// eslint-disable-next-line guard-for-in
+	for (const i in reduced) {
+		const current = reduced[i]
+		const percent = +((current.made / current.total * 1000) / 10).toFixed(2)
 
-		reduced[i].percent = percent
-	}
-
-	return reduced
-}
-
-function getDistanceAverageThroughDay(days) {
-	/* [{
-		date: 20150101,
-		shots: [{distanceBin: 2, made: 5, total: 10},...],
-		},...]
-	*/
-	// add all days together
-	// create distances obj
-	const distanceData = range(maxDistanceBin)
-	const emptyDistances = distanceData.reduce((previous, distanceBin) => {
-		previous[distanceBin] = { made: 0, total: 0 }
-		return previous
-	}, {})
-
-	const reduced = days.reduce((previous, day) => {
-		day.distances.forEach(distance => {
-			previous[distance.distanceBin].made += distance.values.made
-			previous[distance.distanceBin].total += distance.values.total
-		})
-		return previous
-	}, emptyDistances)
-
-	for (let i in reduced) {
-		const percent = +((reduced[i].made / reduced[i].total * 1000) / 10).toFixed(2)
-		const made = reduced[i].made
-		const total = reduced[i].total
-
-		reduced[i].percent = percent
+		current.percent = percent
 	}
 
 	return reduced
@@ -108,19 +65,22 @@ function getDistanceAverageThroughDay(days) {
 
 function getAllZoneAverages(days) {
 
-	/* 
+	/*
 		days: [{
 			date: 20150101,
 			shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
 		},...]
 	*/
+
+	const zoneNames = getZones()
+
 	// go thru each zone and compute made / total
 	const shotTotalsEachDay = days.map(day => {
 		const zones = zoneNames.map(z => ({ zoneName: z, values: getZoneShots(z, day.shots) }))
 		return { date: day.date, zones }
 	})
 
-	/* 
+	/*
 		shotTotalsEachDay: [{
 			date: 20150101,
 			zones: {
@@ -136,40 +96,6 @@ function getAllZoneAverages(days) {
 		const filtered = shotTotalsEachDay.filter(shotDay => +shotDay.date <= +day.date)
 		const zones = getZoneAverageThroughDay(filtered)
 		return { date: day.date, zones }
-	})
-}
-
-function getAllDistanceAverages(days) {
-	 /*
-		days: [{
-			date: 20150101,
-			shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
-		},...]
-	*/
-	// go thru each distance and compute made / total
-
-	const distanceData = createDistanceData()
-	const shotTotalsEachDay = days.map(day => {
-		const distances = distanceData.map((val, i) => ({ distanceBin: i, values: getDistanceShots(i, day.shots) }))
-		return { date: day.date, distances }
-	})
-
-	/* 
-		shotTotalsEachDay: [{
-			date: 20150101,
-			distances: {
-				distanceBin: 0,
-				values: {made: 5, total: 10}
-			}
-		},...]
-	*/
-
-	// go through each day, and calculate percent thru that date
-	return days.map(day => {
-		// get all shots up until this date
-		const filtered = shotTotalsEachDay.filter(shotDay => +shotDay.date <= +day.date)
-		const distances = getDistanceAverageThroughDay(filtered)
-		return { date: day.date, distances }
 	})
 }
 
@@ -195,13 +121,12 @@ function clean(data) {
 }
 
 function getDates(data) {
-	const dateObject = data.reduce((allDates, d) => {
-		allDates[d.gameDate] = true
-		return allDates
-	}, {})
 
-	// sort and flatten
-	return Object.keys(dateObject).sort((a, b) => (+a) - (+b))
+	const allDates = data.map(d => d.gameDate)
+	const uniqueDates = [...new Set(allDates)]
+	const sortedDates = uniqueDates.sort((a, b) => +a - +b)
+	return sortedDates
+
 }
 
 function calculate(data) {
