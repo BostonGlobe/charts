@@ -1,0 +1,101 @@
+{
+	"hed": "Custom hed",
+	"data":
+	{
+		"averages": [
+			{
+				"date": "20151027",
+				"zones": {
+					"restricted area": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"low post": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"high post": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"midrange (lower right)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"midrange (lower left)": {
+						"made": 1,
+						"total": 1,
+						"percent": 100
+					},
+					"midrange (upper right)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"midrange (upper left)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"midrange (upper middle)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (right corner)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (left corner)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (right)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (middle)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (left)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					},
+					"three (deep)": {
+						"made": 0,
+						"total": 0,
+						"percent": 0
+					}
+				}
+			}
+		],
+		"shots": [
+			{
+				"season": "201516",
+				"gameDate": "20151027",
+				"opponent": "Atl",
+				"home": true,
+				"quarter": 1,
+				"time": "11:00.0",
+				"player": "Paul Millsap",
+				"shotX": 7.6,
+				"shotY": 9.5,
+				"made": true,
+				"distance": 12.16,
+				"zone": "midrange (lower left)",
+				"zoneGroup": "midrange"
+			}
+		]
+	}
+}
+
