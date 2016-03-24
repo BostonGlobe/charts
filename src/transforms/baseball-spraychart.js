@@ -1,3 +1,3 @@
-const transform = (data) => ({ rows: data })
+const transform = (rows) => ({ rows })
 
 export default transform
