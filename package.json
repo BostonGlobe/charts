@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-charts",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "main": "build/index.js",
   "jsnext:main": "build/index.es6.js",
@@ -14,10 +14,10 @@
     "test": "mocha test",
     "test:watch": "npm test -- --watch"
   },
-	"pre-commit": [
-		"lint",
-		"test"
-	],
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BostonGlobe/charts.git"
