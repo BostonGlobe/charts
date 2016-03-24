@@ -57,7 +57,7 @@ const transform = (data) => {
 	if (data.length) {
 		const averages = getAverages(data)
 		const rows = clean(data).map(createShotObj)
-		return { averages, rows }
+		return { metadata: { averages }, rows }
 	}
 	return { rows: [] }
 
