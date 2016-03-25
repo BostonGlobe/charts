@@ -1,0 +1,23 @@
+{
+	"rows": [
+		{
+			"season": "201516",
+			"gameDate": "20151027",
+			"team": "atl",
+			"opponent": "det",
+			"home": true,
+			"quarter": 1,
+			"time": "11:00.0",
+			"player": "Paul Millsap",
+			"shotX": 7.6,
+			"shotY": 9.5,
+			"made": true,
+			"distance": 12.17,
+			"zone": "high post",
+			"zoneGroup": ["all field goals", "all field goals (excluding restricted area)", "2pt field goals", "in the paint"]
+		}
+	],
+	"filters": {
+		"player": "Paul Millsap"
+	}
+}
