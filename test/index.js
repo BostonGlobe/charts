@@ -9,8 +9,45 @@ const readJSON = (name) =>
 
 describe('baseball', () => {
 
-	// it('subhed should match', () => {
-	// })
+	it('subhed should match', () => {
+
+		const input = readJSON(`${base}/input/baseball-spraychart.json`)
+		const rows = input.rows
+
+		expect(baseballSpraychart.subhed({
+			filters: {
+			},
+		})).to.deep.equal('')
+
+		expect(baseballSpraychart.subhed({
+			filters: {
+			},
+			rows,
+		})).to.deep.equal('')
+
+		expect(baseballSpraychart.subhed({
+			filters: {
+				batter: 'David Ortiz'
+			},
+			rows,
+		})).to.deep.equal('All hits')
+
+		expect(baseballSpraychart.subhed({
+			filters: {
+				team: 'Red Sox'
+			},
+			rows,
+		})).to.deep.equal('All hits')
+
+		expect(baseballSpraychart.subhed({
+			filters: {
+				team: 'Red Sox',
+				description: 'Double'
+			},
+			rows,
+		})).to.deep.equal('Doubles')
+
+	})
 
 	it ('hed should match', () => {
 
@@ -20,12 +57,12 @@ describe('baseball', () => {
 		expect(baseballSpraychart.hed({
 			filters: {
 			},
-			rows,
 		})).to.deep.equal('')
 
 		expect(baseballSpraychart.hed({
 			filters: {
 			},
+			rows,
 		})).to.deep.equal('')
 
 		expect(baseballSpraychart.hed({

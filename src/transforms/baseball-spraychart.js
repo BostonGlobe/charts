@@ -16,7 +16,32 @@ const hed = ({ rows = [], filters }) => {
 
 }
 
-const subhed = ({ rows, filters }) => rows[0] + filters[0]
+const subhed = ({ rows = [], filters }) => {
+
+	// subhed format is going to be the list of filters
+	// with optional prefixes
+
+	const { team, batter, description } = filters
+
+	const { gamedate } = rows[0] || {}
+
+	// we must have either a team or batter, and gamedate
+	if (!((team || batter) && gamedate)) return ''
+
+	const descriptions = {
+		Double: 'Doubles',
+		'Home run': 'Home runs',
+		Out: 'Outs',
+		Sacrifice: 'Sacrifices',
+		'Sacrifice fly': 'Sacrifice flies',
+		Single: 'Singles',
+		Triple: 'Triples',
+		none: 'All hits',
+	}
+
+	return descriptions[description || 'none']
+
+}
 
 export default {
 	hed,
