@@ -1,3 +1,15 @@
+import _ from 'lodash'
+
+const trimData = ({ rows }) => ({
+	rows: rows.map(d => _.pick(d, [
+		'description',
+		'distance',
+		'gamedate',
+		'index',
+		'zone',
+	])),
+})
+
 const hed = ({ rows = [], filters }) => {
 
 	// hed format is going to be:
@@ -46,4 +58,5 @@ const subhed = ({ rows = [], filters }) => {
 export default {
 	hed,
 	subhed,
+	trimData,
 }
