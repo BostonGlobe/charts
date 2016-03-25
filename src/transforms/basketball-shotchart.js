@@ -64,4 +64,11 @@ const transform = (data) => {
 
 }
 
-export default transform
+const hed = (rows) => rows[0]
+const subhed = ({ rows, filters }) => rows[0] + filters[0]
+
+export default {
+	transform,
+	hed,
+	subhed,
+}
