@@ -82,11 +82,11 @@ const hed = ({ rows }) => {
 		// get unique players
 		const uniquePlayers = _.uniqBy(rows, d => d.player)
 		// get season
-		const season = rows[0].season
+		const seasonStr = rows[0].season.toString()
 
 		// if more than one player, show team name
 		const who = uniquePlayers.length > 1 ? rows[0].team : uniquePlayers[0].player
-		const when = `${season.substring(0, 4)}-${season.substring(4, 6)}`
+		const when = `${seasonStr.substring(0, 4)}-${seasonStr.substring(4, 6)}`
 
 		return `${who} ${when}`
 	}
