@@ -1,13 +1,15 @@
 import _ from 'lodash'
 
-const trimData = ({ rows }) => ({
-	rows: rows.map(d => _.pick(d, [
-		'description',
-		'distance',
-		'gamedate',
-		'index',
-		'zone',
-	])),
+const trimData = (data) => ({
+	...data,
+	rows: data.rows.map(row =>
+		_.pick(row, [
+			'description',
+			'distance',
+			'gamedate',
+			'index',
+			'zone',
+		])),
 })
 
 const hed = ({ rows = [], filters }) => {
