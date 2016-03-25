@@ -1,19 +1,20 @@
 import { getZoneFromShot } from 'nba-shot-zones'
+import _ from 'lodash'
 import zoneGroups from '../utils/basketball-zone-groups'
 import getAverages from '../utils/basketball-averages'
 
 const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
 
-const getZoneGroup = (zone) => {
-	const filtered = zoneGroups.filter(group => group.zones.indexOf(zone) > -1)
-	return filtered.map(group => group.name)
-}
+const getZoneGroup = (zone) =>
+	_.chain(zoneGroups)
+		.filter(group => group.zones.indexOf(zone) > -1)
+		.map(group => group.name)
+		.value()
 
 function clean(data) {
 	// the row is column definitions, so must get season from second row
 	const season = data[1].season
-	return data
-		.filter(d => d.season === season)
+	return _.filter(data, d => d.season === season)
 }
 
 const createShotObj = (datum) => {

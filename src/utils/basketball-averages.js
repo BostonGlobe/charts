@@ -1,4 +1,5 @@
 import { getZoneFromShot, getZones } from 'nba-shot-zones'
+import _ from 'lodash'
 
 const distanceBinSize = 4
 const maxDistanceBin = Math.floor(32 / distanceBinSize)
@@ -20,12 +21,13 @@ function getZoneShots(zoneName, shots) {
 	/*
 		shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
 	*/
-	return shots
+	return _.chain(shots)
 		.filter(shot => shot.zoneName === zoneName)
 		.reduce((previous, datum) => ({
 			made: previous.made + (datum.made ? 1 : 0),
 			total: previous.total + 1,
 		}), { made: 0, total: 0 })
+		.value()
 }
 
 function getZoneAverageThroughDay(days) {
@@ -42,13 +44,13 @@ function getZoneAverageThroughDay(days) {
 	// input: ['one', 'two', 'three']
 	// output: {'one': { made: 0, total: 0 }, 'two': { made: 0, total: 0 } ...
 
-	const emptyZones = zoneNames.reduce((previous, current) => ({
+	const emptyZones = _.reduce(zoneNames, (previous, current) => ({
 		...previous,
 		[current]: { made: 0, total: 0 },
 	}), {})
 
-	const reduced = days.reduce((previous, day) => {
-		day.zones.forEach(zone => {
+	const reduced = _.reduce(days, (previous, day) => {
+		_.forEach(day.zones, zone => {
 			// eslint-disable-next-line no-param-reassign
 			previous[zone.zoneName].made += zone.values.made
 			// eslint-disable-next-line no-param-reassign
@@ -80,8 +82,8 @@ function getAllZoneAverages(days) {
 	const zoneNames = getZones()
 
 	// go thru each zone and compute made / total
-	const shotTotalsEachDay = days.map(day => {
-		const zones = zoneNames.map(z => ({ zoneName: z, values: getZoneShots(z, day.shots) }))
+	const shotTotalsEachDay = _.map(days, day => {
+		const zones = _.map(zoneNames, z => ({ zoneName: z, values: getZoneShots(z, day.shots) }))
 		return { date: day.date, zones }
 	})
 
@@ -96,7 +98,7 @@ function getAllZoneAverages(days) {
 	*/
 
 	// go through each day, and calculate percent thru that date
-	return days.map(day => {
+	return _.map(days, day => {
 		// get all shots up until this date
 		const filtered = shotTotalsEachDay.filter(shotDay => +shotDay.date <= +day.date)
 		const zones = getZoneAverageThroughDay(filtered)
@@ -120,26 +122,25 @@ function cleanShot(d) {
 // remove first row and filter to current season
 function clean(data) {
 	const season = data[1].season
-	return data
+	return _.chain(data)
 		.filter(d => d.season === season)
 		.map(cleanShot)
+		.value()
 }
 
 function getDates(data) {
-
-	const allDates = data.map(d => d.gameDate)
-	const uniqueDates = [...new Set(allDates)]
-	const sortedDates = uniqueDates.sort((a, b) => +a - +b)
-	return sortedDates
-
+	return _.chain(data)
+		.map(d => d.gameDate)
+		.uniq()
+		.value()
 }
 
 function calculate(data) {
 	// calculate each average by games through that date
 	const dates = getDates(data)
 	// get all shots on each date
-	const shotsOnEachDate = dates.map(date => {
-		const shots = data.filter(d => d.gameDate === date)
+	const shotsOnEachDate = _.map(dates, date => {
+		const shots = _.filter(data, d => d.gameDate === date)
 		return { date, shots }
 	})
 
