@@ -17,7 +17,7 @@ describe('basketball transforms', () => {
 	const hedOut = 'Paul Millsap 2015-16'
 
 	it('hed should match', () => {
-		expect(basketballShotchart.hed(hedIn.rows)).to.deep.equal(hedOut)
+		expect(basketballShotchart.hed({ rows: hedIn.rows })).to.deep.equal(hedOut)
 	})
 
 	const subhedFile = 'basketball-shotchart-subhed'

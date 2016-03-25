@@ -77,7 +77,7 @@ const transform = (data) => {
 	return { rows: [] }
 }
 
-const hed = (rows) => {
+const hed = ({ rows }) => {
 	if (!rows.length) return ''
 
 	// get unique players
