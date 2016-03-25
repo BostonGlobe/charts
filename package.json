@@ -11,7 +11,7 @@
     "build": "npm run clean && npm run build:cjs && npm run build:es6",
     "prepublish": "BABEL_ENV=rollup npm run lint && npm run build",
     "lint": "eslint src",
-    "test": "mocha test",
+    "test": "npm run build && mocha test",
     "test:watch": "npm test -- --watch"
   },
   "pre-commit": [
