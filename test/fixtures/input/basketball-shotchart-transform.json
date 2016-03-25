@@ -14,17 +14,17 @@
 		"shot-y": "integer"
 	},
 	{
-		"season": "201516",
+		"season": 201516,
 		"team": "Atl",
 		"gamedate": "20151027",
 		"opponent": "Det",
 		"home-away": "home",
 		"event": "Field Goal Made",
-		"quarter": "1",
+		"quarter": 1,
 		"time": "11:00.0",
 		"player": "Paul Millsap",
 		"player-sort": "Millsap Paul",
-		"shot-x": "7.6",
-		"shot-y": "9.5"
+		"shot-x": 7.6,
+		"shot-y": 9.5
 	}
 ]

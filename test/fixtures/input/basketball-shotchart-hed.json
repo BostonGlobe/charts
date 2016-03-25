@@ -1,7 +1,7 @@
 {
 	"rows": [
 		{
-			"season": "201516",
+			"season": 201516,
 			"gameDate": "20151027",
 			"team": "atl",
 			"opponent": "det",
