@@ -78,23 +78,29 @@ const transform = (data) => {
 }
 
 const hed = ({ rows }) => {
-	if (!rows.length) return ''
+	if (rows.length) {
+		// get unique players
+		const uniquePlayers = _.uniqBy(rows, d => d.player)
+		// get season
+		const season = rows[0].season
 
-	// get unique players
-	const uniquePlayers = _.uniqBy(rows, d => d.player)
-	// get season
-	const season = rows[0].season
+		// if more than one player, show team name
+		const who = uniquePlayers.length > 1 ? rows[0].team : uniquePlayers[0].player
+		const when = `${season.substring(0, 4)}-${season.substring(4, 6)}`
 
-	// if more than one player, show team name
-	const who = uniquePlayers.length > 1 ? rows[0].team : uniquePlayers[0].player
-	const when = `${season.substring(0, 4)}-${season.substring(4, 6)}`
+		return `${who} ${when}`
+	}
 
-	return `${who} ${when}`
+	return ''
 }
 
 const subhed = ({ rows }) => {
-	const date = getLatestDate(rows)
-	return `Effectiveness on all shots through ${date}`
+	if (rows.length) {
+		const date = getLatestDate(rows)
+		return `Effectiveness on all shots through ${date}`
+	}
+
+	return ''
 }
 
 export default {
