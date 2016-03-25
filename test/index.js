@@ -7,6 +7,53 @@ const base = './test/fixtures/'
 const readJSON = (name) =>
 	JSON.parse(fs.readFileSync(name, 'utf8'))
 
+describe('baseball', () => {
+
+	// it('subhed should match', () => {
+	// })
+
+	it ('hed should match', () => {
+
+		const input = readJSON(`${base}/input/baseball-spraychart.json`)
+		const rows = input.rows
+
+		expect(baseballSpraychart.hed({
+			filters: {
+			},
+			rows,
+		})).to.deep.equal('')
+
+		expect(baseballSpraychart.hed({
+			filters: {
+			},
+		})).to.deep.equal('')
+
+		expect(baseballSpraychart.hed({
+			filters: {
+				batter: 'David Ortiz'
+			},
+			rows,
+		})).to.deep.equal('David Ortiz, 2015')
+
+		expect(baseballSpraychart.hed({
+			filters: {
+				batter: 'David Ortiz',
+				team: 'Red Sox',
+			},
+			rows,
+		})).to.deep.equal('David Ortiz, 2015')
+
+		expect(baseballSpraychart.hed({
+			filters: {
+				team: 'Red Sox'
+			},
+			rows,
+		})).to.deep.equal('Red Sox, 2015')
+
+	})
+
+})
+
 describe('basketball', () => {
 
 	it('transform should match', () => {
