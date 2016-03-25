@@ -1,12 +1,13 @@
 const fs = require('fs')
 const expect = require('chai').expect
 const basketballShotchart = require('./../build/index.js').basketballShotchart
+const baseballSpraychart = require('./../build/index.js').baseballSpraychart
 const base = './test/fixtures/'
 
 const readJSON = (name) =>
 	JSON.parse(fs.readFileSync(name, 'utf8'))
 
-describe('basketball transforms', () => {
+describe('basketball', () => {
 
 	it('transform should match', () => {
 
