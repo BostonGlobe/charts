@@ -139,8 +139,14 @@ function calculate(data) {
 	// calculate each average by games through that date
 	const dates = getDates(data)
 	// get all shots on each date
+
+	// iterate over every date
 	const shotsOnEachDate = _.map(dates, date => {
-		const shots = _.filter(data, d => d.gameDate === date)
+
+		// find all the shots taken on this date
+		const shots = _.filter(data, { gameDate: date })
+
+		// return this date along with all its shots
 		return { date, shots }
 	})
 
