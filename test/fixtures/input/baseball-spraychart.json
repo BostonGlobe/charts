@@ -1,0 +1,51 @@
+{
+	"rows": [
+		{
+			"balls": 2,
+			"batter": "Daniel Nava",
+			"batter-hand": "S",
+			"batter-slot": 7,
+			"description": "Double",
+			"distance": 301,
+			"gamedate": "20150411",
+			"gameno": 0,
+			"home-away": "away",
+			"index": 130,
+			"inning": 2,
+			"on-base": 3,
+			"opponent": "NYY",
+			"outs": 2,
+			"pitchcount": 5,
+			"pitcher": "Adam Warren (NYY)",
+			"pitcher-hand": "R",
+			"strikes": 2,
+			"type": "Fly ball",
+			"venue": "Yankee Stadium (NYY)",
+			"zone": "E"
+		},
+		{
+			"balls": 1,
+			"batter": "Daniel Nava",
+			"batter-hand": "L",
+			"batter-slot": 6,
+			"description": "Double",
+			"distance": 358,
+			"gamedate": "20150520",
+			"gameno": 0,
+			"home-away": "home",
+			"index": 1010,
+			"inning": 4,
+			"on-base": 1,
+			"opponent": "Tex",
+			"outs": 2,
+			"pitchcount": 3,
+			"pitcher": "Phil Klein (Tex)",
+			"pitcher-hand": "R",
+			"strikes": 1,
+			"type": "Fly ball",
+			"venue": "Fenway Park (Bos)",
+			"zone": "U"
+		}
+	],
+	"hed": "custom hed"
+}

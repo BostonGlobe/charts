@@ -20,9 +20,9 @@ const getLatestDate = (rows) => {
 }
 
 const getZoneGroup = (zone) =>
-	_.chain(zoneGroups)
-		.filter(group => group.zones.indexOf(zone) > -1)
-		.map(group => group.name)
+	_(zoneGroups)
+		.filter(group => _.includes(group.zones, zone))
+		.map('name')
 		.value()
 
 const clean = (data) => {

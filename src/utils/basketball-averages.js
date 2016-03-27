@@ -128,21 +128,15 @@ function clean(data) {
 		.value()
 }
 
-function getDates(data) {
-	return _.chain(data)
-		.map(d => d.gameDate)
-		.uniq()
-		.value()
-}
-
 function calculate(data) {
-	// calculate each average by games through that date
-	const dates = getDates(data)
-	// get all shots on each date
-	const shotsOnEachDate = _.map(dates, date => {
-		const shots = _.filter(data, d => d.gameDate === date)
-		return { date, shots }
-	})
+
+	// we want to get all shots on each date
+	const shotsOnEachDate = _(data)
+		// first: group shots by date
+		.groupBy('gameDate')
+		// next: make an array of { shots, date }
+		.map((shots, date) => ({ shots, date }))
+		.value()
 
 	// calculate average for each zone on each date
 	const zoneAverages = getAllZoneAverages(shotsOnEachDate)
