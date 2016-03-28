@@ -2,6 +2,7 @@ const fs = require('fs')
 const expect = require('chai').expect
 const basketballShotchart = require('./../build/index.js').basketballShotchart
 const baseballSpraychart = require('./../build/index.js').baseballSpraychart
+const hockeyShotchart = require('./../build/index.js').hockeyShotchart
 const base = './test/fixtures/'
 
 const readJSON = (name) =>
@@ -130,6 +131,20 @@ describe('basketball', () => {
 		const output = 'Effectiveness on all shots through Oct. 27'
 
 		expect(basketballShotchart.subhed({ rows: input.rows }))
+			.to.deep.equal(output)
+	})
+
+})
+
+describe('hockey', () => {
+
+	it('transform should match', () => {
+
+		const file = 'hockey-shotchart-transform'
+		const input = readJSON(`${base}/input/${file}.json`)
+		const output = readJSON(`${base}/output/${file}.json`)
+
+		expect(hockeyShotchart.transform(input))
 			.to.deep.equal(output)
 	})
 

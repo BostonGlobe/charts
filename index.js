@@ -3,3 +3,6 @@ export { default as baseballSpraychart }
 
 export { default as basketballShotchart }
 	from './src/transforms/basketball-shotchart.js'
+
+export { default as hockeyShotchart }
+	from './src/transforms/hockey-shotchart.js'
