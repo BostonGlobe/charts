@@ -16,5 +16,8 @@
 			"zone": "high post",
 			"zoneGroup": ["all field goals", "all field goals (excluding restricted area)", "2pt field goals", "in the paint"]
 		}
-	]
+	],
+	"filters": {
+		"player": "Paul Millsap"
+	}
 }
