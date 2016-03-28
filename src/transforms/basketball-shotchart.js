@@ -41,12 +41,12 @@ const createShotObj = (datum) => {
 	const quarter = +datum.quarter
 	const time = datum.time
 	const player = datum.player
-	const shotX = +datum['shot-x']
-	const shotY = +datum['shot-y']
+	const x = +datum['shot-x']
+	const y = +datum['shot-y']
 
 
-	const distance = +calculateDistance(shotX, shotY)
-	const zone = getZoneFromShot({ x: shotX, y: shotY })
+	const distance = +calculateDistance(x, y)
+	const zone = getZoneFromShot({ x, y })
 	const zoneGroup = getZoneGroup(zone)
 	const made = datum.event.toLowerCase().indexOf('missed') < 0
 
@@ -59,8 +59,8 @@ const createShotObj = (datum) => {
 		quarter,
 		time,
 		player,
-		shotX,
-		shotY,
+		x,
+		y,
 		made,
 		distance,
 		zone,
@@ -106,8 +106,8 @@ const trimData = (data) => ({
 	rows: data.rows.map(row =>
 		_.pick(row, [
 			'gameDate',
-			'shotX',
-			'shotY',
+			'x',
+			'y',
 			'made',
 		])),
 })

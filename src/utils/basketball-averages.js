@@ -19,7 +19,7 @@ function toPercent(numerator, denominator) {
 
 function getZoneShots(zoneName, shots) {
 	/*
-		shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
+		shots: [{zoneName: 'paint', distanceBin: 1, made: true, x: 5, ...},...],
 	*/
 	return _.chain(shots)
 		.filter(shot => shot.zoneName === zoneName)
@@ -75,7 +75,7 @@ function getAllZoneAverages(days) {
 	/*
 		days: [{
 			date: 20150101,
-			shots: [{zoneName: 'paint', distanceBin: 1, made: true, shotX: 5, ...},...],
+			shots: [{zoneName: 'paint', distanceBin: 1, made: true, x: 5, ...},...],
 		},...]
 	*/
 
@@ -108,15 +108,15 @@ function getAllZoneAverages(days) {
 
 // reduce / clean fields and determine shot zone
 function cleanShot(d) {
-	const shotX = +d['shot-x']
-	const shotY = +d['shot-y']
-	const distance = calculateDistance(shotX, shotY)
+	const x = +d['shot-x']
+	const y = +d['shot-y']
+	const distance = calculateDistance(x, y)
 	const distanceBin = calculateDistanceBin(distance)
-	const zoneName = getZoneFromShot({ x: shotX, y: shotY })
+	const zoneName = getZoneFromShot({ x, y })
 	const made = d.event.toLowerCase().indexOf('missed') < 0
 	const gameDate = d.gamedate
 
-	return { shotX, shotY, made, distance, distanceBin, zoneName, gameDate }
+	return { x, y, made, distance, distanceBin, zoneName, gameDate }
 }
 
 // remove first row and filter to current season
