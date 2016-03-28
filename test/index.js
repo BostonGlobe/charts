@@ -1,9 +1,12 @@
 const fs = require('fs')
 const expect = require('chai').expect
+
 const basketballShotchart = require('./../build/index.js').basketballShotchart
 const baseballSpraychart = require('./../build/index.js').baseballSpraychart
 const hockeyShotchart = require('./../build/index.js').hockeyShotchart
-const base = './test/fixtures/'
+const pointDifferential = require('./../build/index.js').pointDifferential
+
+const base = './test/fixtures'
 
 const readJSON = (name) =>
 	JSON.parse(fs.readFileSync(name, 'utf8'))
@@ -97,6 +100,28 @@ describe('baseball', () => {
 			},
 			rows,
 		})).to.deep.equal('Red Sox, 2015')
+
+	})
+
+})
+
+describe('point-differential', () => {
+
+	it('hed should be hardcoded for now', () => {
+
+		expect(pointDifferential.hed())
+			.to.deep.equal('Run differential: last 10 games')
+
+	})
+
+	it('transform should return the last 10 games', () => {
+
+		const file = 'point-differential'
+		const input = readJSON(`${base}/input/${file}.json`)
+		const output = readJSON(`${base}/output/${file}.json`)
+
+		expect(pointDifferential.trimData(pointDifferential.transform(input)))
+			.to.deep.equal(output)
 
 	})
 

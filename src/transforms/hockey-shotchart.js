@@ -12,7 +12,7 @@ const calculalateX = (x, home) => {
 const calculalateY = (y, home) => {
 	if (home) {
 		const midway = 42.5
-		const diff = y - midway	
+		const diff = y - midway
 		return midway - diff
 	}
 	return y

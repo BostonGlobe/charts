@@ -6,3 +6,6 @@ export { default as basketballShotchart }
 
 export { default as hockeyShotchart }
 	from './src/transforms/hockey-shotchart.js'
+
+export { default as pointDifferential }
+	from './src/transforms/point-differential.js'

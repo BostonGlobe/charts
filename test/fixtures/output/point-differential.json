@@ -1,0 +1,64 @@
+{
+	"rows": [
+		{
+			"gamedate": "20150925",
+			"gameno": 153,
+			"index": 152,
+			"run-differential": 7
+		},
+		{
+			"gamedate": "20150926",
+			"gameno": 154,
+			"index": 153,
+			"run-differential": 8
+		},
+		{
+			"gamedate": "20150927",
+			"gameno": 155,
+			"index": 154,
+			"run-differential": 2
+		},
+		{
+			"gamedate": "20150928",
+			"gameno": 156,
+			"index": 155,
+			"run-differential": 4
+		},
+		{
+			"gamedate": "20150929",
+			"gameno": 157,
+			"index": 156,
+			"run-differential": 6
+		},
+		{
+			"gamedate": "20150930",
+			"gameno": 158,
+			"index": 157,
+			"run-differential": 4
+		},
+		{
+			"gamedate": "20151001",
+			"gameno": 159,
+			"index": 158,
+			"run-differential": -3
+		},
+		{
+			"gamedate": "20151002",
+			"gameno": 160,
+			"index": 159,
+			"run-differential": -6
+		},
+		{
+			"gamedate": "20151003",
+			"gameno": 161,
+			"index": 160,
+			"run-differential": -2
+		},
+		{
+			"gamedate": "20151004",
+			"gameno": 162,
+			"index": 161,
+			"run-differential": -2
+		}
+	]
+}
