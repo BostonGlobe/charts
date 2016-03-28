@@ -77,15 +77,13 @@ const transform = (data) => {
 	return { rows: [] }
 }
 
-const hed = ({ rows }) => {
+const hed = ({ rows, filters }) => {
 	if (rows.length) {
-		// get unique players
-		const uniquePlayers = _.uniqBy(rows, d => d.player)
 		// get season
 		const seasonStr = rows[0].season.toString()
 
 		// if more than one player, show team name
-		const who = uniquePlayers.length > 1 ? rows[0].team : uniquePlayers[0].player
+		const who = filters.player ? filters.player : filters.team
 		const when = `${seasonStr.substring(0, 4)}-${seasonStr.substring(4, 6)}`
 
 		return `${who} ${when}`
