@@ -119,7 +119,7 @@ describe('basketball', () => {
 		const input = readJSON(`${base}/input/${file}.json`)
 		const output = 'Paul Millsap 2015-16'
 
-		expect(basketballShotchart.hed({ rows: input.rows }))
+		expect(basketballShotchart.hed({ rows: input.rows, filters: input.filters }))
 			.to.deep.equal(output)
 	})
 
