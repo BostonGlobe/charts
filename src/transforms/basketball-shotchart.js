@@ -103,8 +103,20 @@ const subhed = ({ rows }) => {
 	return ''
 }
 
+const trimData = (data) => ({
+	...data,
+	rows: data.rows.map(row =>
+		_.pick(row, [
+			'gameDate',
+			'shotX',
+			'shotY',
+			'made',
+		])),
+})
+
 export default {
 	transform,
 	hed,
 	subhed,
+	trimData,
 }
