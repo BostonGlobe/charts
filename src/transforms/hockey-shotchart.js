@@ -1,23 +1,5 @@
 import _ from 'lodash'
 
-const calculalateX = (x, home) => {
-	// if (home) {
-	// 	const midway = 89
-	// 	const diff = x - midway
-	// 	return midway - diff
-	// }
-	return x
-}
-
-const calculalateY = (y, home) => {
-	// if (home) {
-	// 	const midway = 42.5
-	// 	const diff = y - midway
-	// 	return midway - diff
-	// }
-	return y
-}
-
 const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
 
 const getLatestDate = (rows) => {
@@ -52,8 +34,8 @@ const createShotObj = (datum) => {
 	const period = +datum.period
 	const time = datum.time
 	const player = datum.player
-	const x = calculalateX(+datum['player-x'], home)
-	const y = calculalateY(+datum['player-y'], home)
+	const x = datum['player-x']
+	const y = datum['player-y']
 	const powerPlay = datum.strength.toLowerCase() !== 'even'
 	const distance = +calculateDistance(x, y)
 	const made = datum.event.toLowerCase().indexOf('shot') < 0
