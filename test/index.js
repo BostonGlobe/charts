@@ -141,7 +141,7 @@ describe('basketball', () => {
 
 	it('hed should match', () => {
 
-		const file = 'basketball-shotchart-hed'
+		const file = 'basketball-shotchart-after'
 		const input = readJSON(`${base}/input/${file}.json`)
 		const output = 'Paul Millsap 2015-16'
 
@@ -151,7 +151,7 @@ describe('basketball', () => {
 
 	it('subhed should match', () => {
 
-		const file = 'basketball-shotchart-subhed'
+		const file = 'basketball-shotchart-after'
 		const input = readJSON(`${base}/input/${file}.json`)
 		const output = 'Effectiveness on all shots through Oct. 27'
 
