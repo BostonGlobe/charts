@@ -1,20 +1,20 @@
 import _ from 'lodash'
 
 const calculalateX = (x, home) => {
-	if (home) {
-		const midway = 89
-		const diff = x - midway
-		return midway - diff
-	}
+	// if (home) {
+	// 	const midway = 89
+	// 	const diff = x - midway
+	// 	return midway - diff
+	// }
 	return x
 }
 
 const calculalateY = (y, home) => {
-	if (home) {
-		const midway = 42.5
-		const diff = y - midway
-		return midway - diff
-	}
+	// if (home) {
+	// 	const midway = 42.5
+	// 	const diff = y - midway
+	// 	return midway - diff
+	// }
 	return y
 }
 
@@ -44,8 +44,10 @@ const createShotObj = (datum) => {
 	// everything we (might) need
 	const season = datum.season
 	const gameDate = datum.gamedate
-	const team = datum.team.toLowerCase()
-	const opponent = datum.opponent.toLowerCase()
+	const teamLocation = datum['team-location']
+	const teamNickname = datum['team-nickname']
+	const opponentLocation = datum['opponent-location']
+	const opponentNickname = datum['opponent-nickname']
 	const home = datum['home-away'] === 'home'
 	const period = +datum.period
 	const time = datum.time
@@ -59,8 +61,10 @@ const createShotObj = (datum) => {
 	return {
 		season,
 		gameDate,
-		team,
-		opponent,
+		teamLocation,
+		teamNickname,
+		opponentLocation,
+		opponentNickname,
 		home,
 		period,
 		time,
