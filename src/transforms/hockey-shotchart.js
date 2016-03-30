@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import dl from 'datalib'
 
 const calculalateX = x => {
 	const midway = 89
@@ -30,7 +31,7 @@ const getLatestDate = (rows) => {
 
 const clean = (data) => {
 	// the row is column definitions, so must get season from second row
-	const season = data[1].season
+	const season = data[0].season
 	return _.filter(data, d => d.season === season)
 }
 
@@ -71,12 +72,13 @@ const createShotObj = (datum) => {
 	}
 }
 
-const transform = (data) => {
-	if (data.length) {
-		const rows = clean(data).map(createShotObj)
-		return { rows }
+const transform = ({ values }) => {
+	if (values.length) {
+		const rows = clean(values).map(createShotObj)
+		const types = dl.type.inferAll([rows[0]])
+		return { rows, types }
 	}
-	return { rows: [] }
+	return { rows: [], types: {} }
 }
 
 const hed = ({ rows, filters }) => {
