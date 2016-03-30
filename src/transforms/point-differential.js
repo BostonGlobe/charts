@@ -12,8 +12,8 @@ const trimData = (data) => ({
 })
 
 const transform = (data) => ({
-	rows: data.length ?
-		data.slice(-10) :
+	rows: data.values.length ?
+		data.values.slice(-10) :
 		[],
 })
 
