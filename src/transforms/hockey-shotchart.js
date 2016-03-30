@@ -85,7 +85,7 @@ const hed = ({ rows, filters }) => {
 		const seasonStr = rows[0].season.toString()
 
 		// if more than one player, show team name
-		const who = filters.player ? filters.player : filters.team
+		const who = filters.player ? filters.player : filters.teamLocation
 		const when = `${seasonStr.substring(0, 4)}-${seasonStr.substring(4, 6)}`
 
 		return `${who} ${when}`
