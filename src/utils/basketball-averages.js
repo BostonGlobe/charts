@@ -121,7 +121,7 @@ function cleanShot(d) {
 
 // remove first row and filter to current season
 function clean(data) {
-	const season = data[1].season
+	const season = data[0].season
 	return _.chain(data)
 		.filter(d => d.season === season)
 		.map(cleanShot)

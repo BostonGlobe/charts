@@ -1,6 +1,7 @@
 import { getZoneFromShot } from 'nba-shot-zones'
 import _ from 'lodash'
-import zoneGroups from '../utils/basketball-zone-groups'
+import dl from 'datalib'
+// import zoneGroups from '../utils/basketball-zone-groups'
 import getAverages from '../utils/basketball-averages'
 
 const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
@@ -19,15 +20,15 @@ const getLatestDate = (rows) => {
 	return output
 }
 
-const getZoneGroup = (zone) =>
-	_(zoneGroups)
-		.filter(group => _.includes(group.zones, zone))
-		.map('name')
-		.value()
+// const getZoneGroup = (zone) =>
+// 	_(zoneGroups)
+// 		.filter(group => _.includes(group.zones, zone))
+// 		.map('name')
+// 		.value()
 
 const clean = (data) => {
 	// the row is column definitions, so must get season from second row
-	const season = data[1].season
+	const season = data[0].season
 	return _.filter(data, d => d.season === season)
 }
 
@@ -47,7 +48,7 @@ const createShotObj = (datum) => {
 
 	const distance = +calculateDistance(x, y)
 	const zone = getZoneFromShot({ x, y })
-	const zoneGroup = getZoneGroup(zone)
+	// const zoneGroup = getZoneGroup(zone)
 	const made = datum.event.toLowerCase().indexOf('missed') < 0
 
 	return {
@@ -64,17 +65,18 @@ const createShotObj = (datum) => {
 		made,
 		distance,
 		zone,
-		zoneGroup,
+		// zoneGroup,
 	}
 }
 
-const transform = (data) => {
-	if (data.length) {
-		const averages = getAverages(data)
-		const rows = clean(data).map(createShotObj)
-		return { metadata: { averages }, rows }
+const transform = ({ values }) => {
+	if (values.length) {
+		const averages = getAverages(values)
+		const rows = clean(values).map(createShotObj)
+		const types = dl.type.inferAll([rows[0]])
+		return { rows, types, metadata: { averages } }
 	}
-	return { rows: [] }
+	return { rows: [], types: {} }
 }
 
 const hed = ({ rows, filters }) => {
