@@ -13,8 +13,7 @@
 			"y": 9.5,
 			"made": true,
 			"distance": 12.17,
-			"zone": "high post",
-			"zoneGroup": ["all field goals", "all field goals (excluding restricted area)", "2pt field goals", "in the paint"]
+			"zone": "high post"
 		}
 	],
 	"filters": {

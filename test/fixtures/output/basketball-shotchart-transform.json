@@ -78,10 +78,25 @@
 			}
 		]
 	},
+	"types": {
+		"season": "integer",
+		"gameDate": "integer",
+		"team": "string",
+		"opponent": "string",
+		"home": "boolean",
+		"quarter": "integer",
+		"time": "string",
+		"player": "string",
+		"x": "number",
+		"y": "number",
+		"made": "boolean",
+		"distance": "number",
+		"zone": "string"
+	},
 	"rows": [
 		{
 			"season": 201516,
-			"gameDate": "20151027",
+			"gameDate": 20151027,
 			"team": "atl",
 			"opponent": "det",
 			"home": true,
@@ -92,8 +107,7 @@
 			"y": 9.5,
 			"made": true,
 			"distance": 12.17,
-			"zone": "high post",
-			"zoneGroup": ["all field goals", "all field goals (excluding restricted area)", "2pt field goals", "in the paint"]
+			"zone": "high post"
 		}
 	]
 }

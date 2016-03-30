@@ -1,30 +1,32 @@
-[
-	{
+{
+	"types": {
 		"season": "integer",
 		"team": "string",
-		"gamedate": "date",
+		"gamedate": "integer",
 		"opponent": "string",
 		"home-away": "string",
 		"event": "string",
 		"quarter": "integer",
-		"time": "time",
+		"time": "string",
 		"player": "string",
 		"player-sort": "string",
 		"shot-x": "integer",
 		"shot-y": "integer"
 	},
-	{
-		"season": 201516,
-		"team": "Atl",
-		"gamedate": "20151027",
-		"opponent": "Det",
-		"home-away": "home",
-		"event": "Field Goal Made",
-		"quarter": 1,
-		"time": "11:00.0",
-		"player": "Paul Millsap",
-		"player-sort": "Millsap Paul",
-		"shot-x": 7.6,
-		"shot-y": 9.5
-	}
-]
+	"values": [
+		{
+			"season": 201516,
+			"team": "Atl",
+			"gamedate": 20151027,
+			"opponent": "Det",
+			"home-away": "home",
+			"event": "Field Goal Made",
+			"quarter": 1,
+			"time": "11:00.0",
+			"player": "Paul Millsap",
+			"player-sort": "Millsap Paul",
+			"shot-x": 7.6,
+			"shot-y": 9.5
+		}
+	]
+}

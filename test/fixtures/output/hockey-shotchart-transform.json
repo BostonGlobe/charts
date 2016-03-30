@@ -17,5 +17,22 @@
 			"made": false,
 			"distance": 49.03
 		}
-	]
+	],
+	"types": {
+		"season": "integer",
+		"gameDate": "integer",
+		"teamLocation": "string",
+		"teamNickname": "string",
+		"opponentLocation": "string",
+		"opponentNickname": "string",
+		"home": "boolean",
+		"period": "integer",
+		"player": "string",
+		"time": "string",
+		"x": "integer",
+		"y": "integer",
+		"powerPlay": "boolean",
+		"made": "boolean",
+		"distance": "number"
+	}
 }
