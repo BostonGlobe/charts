@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "d3-array": "^0.7.1",
+    "datalib": "^1.6.3",
     "lodash": "^4.6.1",
     "nba-shot-zones": "^1.0.1"
   }
