@@ -96,10 +96,28 @@ const hed = ({ rows, filters }) => {
 	return ''
 }
 
-const subhed = ({ rows }) => {
+const subhed = ({ rows, filters }) => {
+	const filterValue = {
+		home: v => v ? 'at home' : 'on the road',
+		powerPlay: v => v ? 'on a power play' : 'on even strength',
+		opponentNickname: v => `against the ${v}`,
+	}
+
 	if (rows.length) {
 		const date = getLatestDate(rows)
-		return `All shots through ${date}`
+
+		const keys = Object.keys(filters)
+		const result = keys.reduce((previous, current) => {
+			if (current !== 'player' && current !== 'teamNickname') {
+				console.log(current)
+				const val = filters[current]
+				const subhedVal = filterValue[current](val)
+				return `${previous} ${subhedVal}`
+			}
+			return previous
+		}, 'All shots')
+
+		return `${result} through ${date}`
 	}
 
 	return ''
