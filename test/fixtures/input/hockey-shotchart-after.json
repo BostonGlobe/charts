@@ -1,0 +1,25 @@
+{
+	"rows": [
+		{
+			"season": 201516,
+			"gameDate": "20151008",
+			"teamLocation": "Boston",
+			"teamNickname": "Bruins",
+			"opponentLocation": "Toronto",
+			"opponentNickname": "Maple Leafs",
+			"home": false,
+			"period": 1,
+			"time": "19:04",
+			"player": "David Krejci",
+			"x": 10,
+			"y": 48,
+			"powerPlay": false,
+			"made": false,
+			"distance": 49.03
+		}
+	],
+	"filters": {
+		"player": "David Krejci",
+		"home": false
+	}
+}

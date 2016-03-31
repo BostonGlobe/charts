@@ -173,4 +173,14 @@ describe('hockey', () => {
 			.to.deep.equal(output)
 	})
 
+	it('subhed should match', () => {
+
+		const file = 'hockey-shotchart-after'
+		const input = readJSON(`${base}/input/${file}.json`)
+		const output = 'All shots on the road through Oct. 8'
+
+		expect(hockeyShotchart.subhed({ rows: input.rows, filters: input.filters }))
+			.to.deep.equal(output)
+	})
+
 })
