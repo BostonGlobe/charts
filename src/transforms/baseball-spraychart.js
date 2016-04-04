@@ -7,7 +7,7 @@ const trimData = (data) => ({
 			'description',
 			'distance',
 			'gamedate',
-			'index',
+			'id',
 			'zone',
 		])),
 })
