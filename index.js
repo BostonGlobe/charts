@@ -1,3 +1,6 @@
+export { default as convertData }
+	from './src/utils/convertData.js'
+
 export { default as baseballSpraychart }
 	from './src/transforms/baseball-spraychart.js'
 
