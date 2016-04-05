@@ -1,16 +1,10 @@
-import _ from 'lodash'
-
-const trimData = (data) => ({
-	...data,
-	rows: data.rows.map(row =>
-		_.pick(row, [
-			'description',
-			'distance',
-			'gamedate',
-			'id',
-			'zone',
-		])),
-})
+const requiredFields = [
+	'description',
+	'distance',
+	'gamedate',
+	'id',
+	'zone',
+]
 
 const hed = ({ rows = [], filters }) => {
 
@@ -60,5 +54,5 @@ const subhed = ({ rows = [], filters }) => {
 export default {
 	hed,
 	subhed,
-	trimData,
+	requiredFields,
 }

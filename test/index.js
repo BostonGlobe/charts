@@ -13,16 +13,6 @@ const readJSON = (name) =>
 
 describe('baseball', () => {
 
-	it('trimData should match', () => {
-
-		const input = readJSON(`${base}/input/baseball-spraychart.json`)
-		const output = readJSON(`${base}/output/baseball-spraychart.json`)
-
-		expect(baseballSpraychart.trimData(input))
-			.to.deep.equal(output)
-
-	})
-
 	it('subhed should match', () => {
 
 		const input = readJSON(`${base}/input/baseball-spraychart.json`)
