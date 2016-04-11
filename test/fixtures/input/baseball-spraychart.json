@@ -1,51 +1,51 @@
 {
-	"rows": [
-		{
-			"balls": 2,
-			"batter": "Daniel Nava",
-			"batter-hand": "S",
-			"batter-slot": 7,
-			"description": "Double",
-			"distance": 301,
-			"gamedate": "20150411",
-			"gameno": 0,
-			"home-away": "away",
-			"id": 130,
-			"inning": 2,
-			"on-base": 3,
-			"opponent": "NYY",
-			"outs": 2,
-			"pitchcount": 5,
-			"pitcher": "Adam Warren (NYY)",
-			"pitcher-hand": "R",
-			"strikes": 2,
-			"type": "Fly ball",
-			"venue": "Yankee Stadium (NYY)",
-			"zone": "E"
-		},
-		{
-			"balls": 1,
-			"batter": "Daniel Nava",
-			"batter-hand": "L",
-			"batter-slot": 6,
-			"description": "Double",
-			"distance": 358,
-			"gamedate": "20150520",
-			"gameno": 0,
-			"home-away": "home",
-			"id": 1010,
-			"inning": 4,
-			"on-base": 1,
-			"opponent": "Tex",
-			"outs": 2,
-			"pitchcount": 3,
-			"pitcher": "Phil Klein (Tex)",
-			"pitcher-hand": "R",
-			"strikes": 1,
-			"type": "Fly ball",
-			"venue": "Fenway Park (Bos)",
-			"zone": "U"
-		}
-	],
-	"hed": "custom hed"
+  "rows": [
+    {
+      "distance": "383",
+      "gamedatetime": "04/05/2016 13:10",
+      "event": "Home run",
+      "direction": "t",
+      "id": "AVQGdqytvN0TLidJY_yl"
+    },
+    {
+      "distance": "423",
+      "gamedatetime": "04/06/2016 18:10",
+      "event": "Home run",
+      "direction": "r",
+      "id": "AVQGdqy0vN0TLidJY_7j"
+    }
+  ],
+  "metadata": {
+    "types": {
+      "on-base-after": "integer",
+      "batted-ball-type": "string",
+      "gamedatetime": "date",
+      "batter-team-location": "string",
+      "distance": "integer",
+      "pitcher-team-location": "string",
+      "event": "string",
+      "pitcher-team-final-score": "integer",
+      "balls": "integer",
+      "pitchcount": "integer",
+      "strikes": "integer",
+      "pitcher-team-alignment": "string",
+      "batter-team-final-score": "integer",
+      "batting-slot": "integer",
+      "inning": "integer",
+      "batter": "string",
+      "pitcher": "string",
+      "batter-team-nickname": "string",
+      "on-base-before": "integer",
+      "outs": "integer",
+      "venue": "string",
+      "direction": "string",
+      "batter-hand": "string",
+      "batted-ball-velocity": "string",
+      "batter-team-alignment": "string",
+      "gameno": "integer",
+      "pitcher-hand": "string",
+      "pitcher-team-nickname": "string",
+      "id": "string"
+    }
+  }
 }
