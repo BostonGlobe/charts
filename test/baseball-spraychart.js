@@ -10,11 +10,11 @@ const input = readJSON(
 
 describe('baseball', () => {
 
-	it('hed should handle no data', () =>
+	it('hed should handle no data or filters', () =>
 		expect(baseballSpraychart.hed({}))
 			.to.deep.equal(''))
 
-	it('hed should handle data and no filters', () =>
+	it('hed should handle no filters', () =>
 		expect(baseballSpraychart.hed({ rows: input.rows }))
 			.to.deep.equal(''))
 
@@ -34,8 +34,15 @@ describe('baseball', () => {
 			},
 		})).to.deep.equal('David Ortiz, 2016'))
 
-	it('subhed should return blank for now', () =>
+	it('subhed should handle no data or filters', () =>
 		expect(baseballSpraychart.subhed({}))
-			.to.deep.equal(''))
+			.to.deep.equal('All hits'))
+
+	it('subhed should handle event filter', () =>
+		expect(baseballSpraychart.subhed({
+			filters: {
+				event: 'Home run'
+			},
+		})).to.deep.equal('Home runs'))
 
 })
