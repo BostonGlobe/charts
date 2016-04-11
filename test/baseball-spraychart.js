@@ -22,7 +22,7 @@ describe('baseball', () => {
 		expect(baseballSpraychart.hed({
 			rows: input.rows,
 			filters: {
-				team: 'Red Sox'
+				'batter-team-nickname': 'Red Sox'
 			},
 		})).to.deep.equal('Red Sox, 2016'))
 
