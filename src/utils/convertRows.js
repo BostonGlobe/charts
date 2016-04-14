@@ -8,7 +8,6 @@ const options = {
 	string: (x) => x.toString(),
 }
 
-export default ({ data, types }) =>
-	data.map(row => mapValues(row, (value, key) =>
-		options[types[key]](value)
-	))
+export default ({ rows, mappings }) =>
+	rows.map(row => mapValues(row, (value, key) =>
+		options[mappings[key] || 'string'](value)))
