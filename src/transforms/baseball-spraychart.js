@@ -1,3 +1,5 @@
+import map from 'lodash.map'
+
 const requiredFields = [
 	'event',
 	'distance',
@@ -6,13 +8,21 @@ const requiredFields = [
 	'id',
 ]
 
+const formatFilters = (filters) =>
+	map(filters, value => value)
+		.reduce((acc, value) => ({
+			...acc,
+			[value.key]: value.value,
+		}), {})
+
 const hed = ({ rows = [], filters = {} }) => {
 
 	// hed format is going to be:
 	// {team/batter}, season year
+	const filtersMap = formatFilters(filters)
 
-	const { batter } = filters
-	const batterTeamNickname = filters['batter-team-nickname']
+	const { batter } = filtersMap
+	const batterTeamNickname = filtersMap['batter-team-nickname']
 
 	const { gamedatetime } = rows[0] || {}
 
@@ -30,7 +40,9 @@ const subhed = ({ filters = {} }) => {
 	// subhed format is going to be the list of filters
 	// with optional prefixes
 
-	const { event } = filters
+	const filtersMap = formatFilters(filters)
+
+	const { event } = filtersMap
 
 	const events = {
 		Double: 'Doubles',

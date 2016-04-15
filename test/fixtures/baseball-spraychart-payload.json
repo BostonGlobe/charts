@@ -47,25 +47,6 @@
 	},
 	"rows": [
 		{
-			"_type": "hockey-shotchart",
-			"distance": 47.17,
-			"gameDateTime": "10/08/2015 19:00",
-			"home": true,
-			"id": "AVQWnHoRMYgMzmuK_mLY",
-			"made": false,
-			"opponentLocation": "Winnipeg",
-			"opponentNickname": "Jets",
-			"period": "1",
-			"periodTime": 1062,
-			"player": "Torey Krug",
-			"playerX": 17,
-			"playerY": 44,
-			"powerPlay": true,
-			"season": "201516",
-			"teamLocation": "Boston",
-			"teamNickname": "Bruins"
-		},
-		{
 			"_type": "baseball-spraychart",
 			"balls": "1",
 			"batted-ball-type": "fly ball",

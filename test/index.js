@@ -2,95 +2,10 @@
 // const expect = require('chai').expect
 
 // const basketballShotchart = require('./../build/index.js').basketballShotchart
-// const baseballSpraychart = require('./../build/index.js').baseballSpraychart
 // const hockeyShotchart = require('./../build/index.js').hockeyShotchart
 // const pointDifferential = require('./../build/index.js').pointDifferential
 
 // const base = './test/fixtures'
-
-// describe('baseball', () => {
-
-// 	it('subhed should match', () => {
-
-// 		const input = readJSON(`${base}/input/baseball-spraychart.json`)
-// 		const rows = input.rows
-
-// 		expect(baseballSpraychart.subhed({
-// 			filters: {
-// 			},
-// 		})).to.deep.equal('')
-
-// 		expect(baseballSpraychart.subhed({
-// 			filters: {
-// 			},
-// 			rows,
-// 		})).to.deep.equal('')
-
-// 		expect(baseballSpraychart.subhed({
-// 			filters: {
-// 				batter: 'David Ortiz'
-// 			},
-// 			rows,
-// 		})).to.deep.equal('All hits')
-
-// 		expect(baseballSpraychart.subhed({
-// 			filters: {
-// 				team: 'Red Sox'
-// 			},
-// 			rows,
-// 		})).to.deep.equal('All hits')
-
-// 		expect(baseballSpraychart.subhed({
-// 			filters: {
-// 				team: 'Red Sox',
-// 				description: 'Double'
-// 			},
-// 			rows,
-// 		})).to.deep.equal('Doubles')
-
-// 	})
-
-// 	it ('hed should match', () => {
-
-// 		const input = readJSON(`${base}/input/baseball-spraychart.json`)
-// 		const rows = input.rows
-
-// 		expect(baseballSpraychart.hed({
-// 			filters: {
-// 			},
-// 		})).to.deep.equal('')
-
-// 		expect(baseballSpraychart.hed({
-// 			filters: {
-// 			},
-// 			rows,
-// 		})).to.deep.equal('')
-
-// 		expect(baseballSpraychart.hed({
-// 			filters: {
-// 				batter: 'David Ortiz'
-// 			},
-// 			rows,
-// 		})).to.deep.equal('David Ortiz, 2015')
-
-// 		expect(baseballSpraychart.hed({
-// 			filters: {
-// 				batter: 'David Ortiz',
-// 				team: 'Red Sox',
-// 			},
-// 			rows,
-// 		})).to.deep.equal('David Ortiz, 2015')
-
-// 		expect(baseballSpraychart.hed({
-// 			filters: {
-// 				team: 'Red Sox'
-// 			},
-// 			rows,
-// 		})).to.deep.equal('Red Sox, 2015')
-
-// 	})
-
-// })
 
 // describe('point-differential', () => {
 
