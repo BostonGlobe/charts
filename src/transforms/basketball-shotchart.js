@@ -1,10 +1,4 @@
-import { getZoneFromShot } from 'nba-shot-zones'
 import _ from 'lodash'
-import dl from 'datalib'
-// import zoneGroups from '../utils/basketball-zone-groups'
-import getAverages from '../utils/basketball-averages'
-
-const calculateDistance = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(2)
 
 const getLatestDate = (rows) => {
 	const sorted = rows.sort((a, b) => (+a.gameDate) - (+b.gameDate))
@@ -18,65 +12,6 @@ const getLatestDate = (rows) => {
 	const split = dateString.split(' ')
 	const output = `${split[1]}. ${+split[2]}`
 	return output
-}
-
-// const getZoneGroup = (zone) =>
-// 	_(zoneGroups)
-// 		.filter(group => _.includes(group.zones, zone))
-// 		.map('name')
-// 		.value()
-
-const clean = (data) => {
-	// the row is column definitions, so must get season from second row
-	const season = data[0].season
-	return _.filter(data, d => d.season === season)
-}
-
-const createShotObj = (datum) => {
-	// everything we (might) need
-	const season = datum.season
-	const gameDate = datum.gamedate
-	const team = datum.team.toLowerCase()
-	const opponent = datum.opponent.toLowerCase()
-	const home = datum['home-away'] === 'home'
-	const quarter = +datum.quarter
-	const time = datum.time
-	const player = datum.player
-	const x = +datum['shot-x']
-	const y = +datum['shot-y']
-
-
-	const distance = +calculateDistance(x, y)
-	const zone = getZoneFromShot({ x, y })
-	// const zoneGroup = getZoneGroup(zone)
-	const made = datum.event.toLowerCase().indexOf('missed') < 0
-
-	return {
-		season,
-		gameDate,
-		team,
-		opponent,
-		home,
-		quarter,
-		time,
-		player,
-		x,
-		y,
-		made,
-		distance,
-		zone,
-		// zoneGroup,
-	}
-}
-
-const transform = ({ values }) => {
-	if (values.length) {
-		const averages = getAverages(values)
-		const rows = clean(values).map(createShotObj)
-		const types = dl.type.inferAll([rows[0]])
-		return { rows, types, metadata: { averages } }
-	}
-	return { rows: [], types: {} }
 }
 
 const hed = ({ rows, filters }) => {
@@ -115,7 +50,6 @@ const trimData = (data) => ({
 })
 
 export default {
-	transform,
 	hed,
 	subhed,
 	trimData,
