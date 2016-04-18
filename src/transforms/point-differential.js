@@ -1,26 +1,23 @@
-import _ from 'lodash'
+import formatFilters from './../utils/formatFilters.js'
 
-const trimData = (data) => ({
-	...data,
-	rows: data.rows.map(row =>
-		_.pick(row, [
-			'index',
-			'gamedate',
-			'gameno',
-			'run-differential',
-		])),
-})
+const hed = ({ filters = {} }) => {
 
-const transform = (data) => ({
-	rows: data.values.length ?
-		data.values.slice(-10) :
-		[],
-})
+	// hed format is going to be:
+	// {team/batter}, season year
+	const filtersMap = formatFilters(filters)
 
-const hed = () => 'Run differential: last 10 games'
+	const { teamNickname } = filtersMap
+
+	// we must have a teamNickname
+	if (!teamNickname) return ''
+
+	return `${teamNickname} run differential`
+
+}
+
+const subhed = () => 'Last 10 games'
 
 export default {
-	transform,
-	trimData,
 	hed,
+	subhed,
 }

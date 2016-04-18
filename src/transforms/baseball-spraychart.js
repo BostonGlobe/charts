@@ -1,4 +1,4 @@
-import map from 'lodash.map'
+import formatFilters from './../utils/formatFilters.js'
 
 const requiredFields = [
 	'event',
@@ -7,13 +7,6 @@ const requiredFields = [
 	'direction',
 	'id',
 ]
-
-const formatFilters = (filters) =>
-	map(filters, value => value)
-		.reduce((acc, value) => ({
-			...acc,
-			[value.key]: value.value,
-		}), {})
 
 const hed = ({ rows = [], filters = {} }) => {
 
