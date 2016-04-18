@@ -1,7 +1,9 @@
 import _ from 'lodash'
 
 const getLatestDate = (rows) => {
-	const sorted = rows.sort((a, b) => (new Date(a.gameDateTime)) - (new Date(b.gameDateTime)))
+	const sorted = rows
+		.map(r => r)
+		.sort((a, b) => (new Date(a.gameDateTime)) - (new Date(b.gameDateTime)))
 	const latest = sorted.pop().gameDateTime
 
 	const dateString = new Date(latest).toDateString()
