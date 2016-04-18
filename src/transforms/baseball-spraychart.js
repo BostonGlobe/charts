@@ -3,7 +3,7 @@ import map from 'lodash.map'
 const requiredFields = [
 	'event',
 	'distance',
-	'gamedatetime',
+	'gameDateTime',
 	'direction',
 	'id',
 ]
@@ -21,15 +21,14 @@ const hed = ({ rows = [], filters = {} }) => {
 	// {team/batter}, season year
 	const filtersMap = formatFilters(filters)
 
-	const { batter } = filtersMap
-	const batterTeamNickname = filtersMap['batter-team-nickname']
+	const { batter, batterTeamNickname } = filtersMap
 
-	const { gamedatetime } = rows[0] || {}
+	const { gameDateTime } = rows[0] || {}
 
-	// we must have either a team or batter, and gamedatetime
-	if (!((batterTeamNickname || batter) && gamedatetime)) return ''
+	// we must have either a team or batter, and gameDateTime
+	if (!((batterTeamNickname || batter) && gameDateTime)) return ''
 
-	const year = (new Date(gamedatetime)).getFullYear()
+	const year = (new Date(gameDateTime)).getFullYear()
 
 	return `${batter || batterTeamNickname}, ${year}`
 

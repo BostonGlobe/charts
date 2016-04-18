@@ -24,7 +24,7 @@ describe('baseball', () => {
 			rows: input.rows,
 			filters: {
 				team: {
-					key: 'batter-team-nickname',
+					key: 'batterTeamNickname',
 					value: 'Red Sox',
 				},
 			},
