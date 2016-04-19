@@ -12,3 +12,6 @@ export { default as hockeyShotchart }
 
 export { default as pointDifferential }
 	from './transforms/point-differential.js'
+
+export { default as previousTen }
+	from './transforms/previous-ten.js'
