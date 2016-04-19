@@ -24,7 +24,9 @@ const hed = ({ filters = {}, sport }) => {
 
 const subhed = ({ rows = [] }) => {
 
-	const number = rows.length === 1 ? ' ' : ` ${numbersToWords(rows.length)} `
+	const number = rows.length === 1 ?
+		' ' : ` ${numbersToWords(rows.length)} `
+
 	const suffix = rows.length > 1 || rows.length === 0 ? 's' : ''
 
 	return `Last${number}game${suffix}`
