@@ -15,7 +15,7 @@ const hed = ({ filters = {} }) => {
 
 }
 
-const subhed = () => 'Last 10 games [sport] differential'
+const subhed = () => 'Previous [rows.length] game(s)'
 
 export default {
 	hed,
