@@ -1,6 +1,6 @@
 {
   "name": "chartbuilder-charts",
-  "version": "1.2.28",
+  "version": "1.2.29",
   "description": "",
   "main": "build/index.js",
   "jsnext:main": "build/index.es6.js",
