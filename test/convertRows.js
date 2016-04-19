@@ -1,3 +1,5 @@
+/* global describe, it, afterEach */
+
 import { expect } from 'chai'
 import path from 'path'
 
