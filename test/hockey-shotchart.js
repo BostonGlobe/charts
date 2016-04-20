@@ -90,4 +90,15 @@ describe('hockey', () => {
 				},
 			},
 		})).to.deep.equal('All shots against the Jets through Oct. 8'))
+
+	it('subhed should period', () =>
+		expect(hockeyShotchart.subhed({
+			rows: input.rows,
+			filters: {
+				period: {
+					key: 'period',
+					value: '1',
+				},
+			},
+		})).to.deep.equal('All shots in the 1st period through Oct. 8'))
 })

@@ -56,5 +56,16 @@ describe('basketball', () => {
 					value: 'Hawks',
 				},
 			},
-		})).to.deep.equal('Effectives on all shots through Oct. 27'))
+		})).to.deep.equal('Effectiveness on all shots through Oct. 27'))
+
+	it('subhed should handle quarter', () =>
+		expect(basketballShotchart.subhed({
+			rows: input.rows,
+			filters: {
+				quarter: {
+					key: 'quarter',
+					value: '3',
+				},
+			},
+		})).to.deep.equal('Effectiveness on all shots in the 3rd quarter through Oct. 27'))
 })

@@ -1,5 +1,6 @@
 import getLatestDate from '../utils/getLatestDate'
 import hasData from '../utils/hasData'
+import getOrdinal from '../utils/getOrdinal'
 
 const hed = ({ rows = [], filters = {} }) => {
 	if (hasData(rows, filters)) {
@@ -21,6 +22,7 @@ const subhed = ({ rows = [], filters = {} }) => {
 		home: v => (v ? 'at home' : 'on the road'),
 		powerPlay: v => (v ? 'on a power play' : 'on even strength'),
 		opponent: v => (`against the ${v}`),
+		period: v => (`in the ${getOrdinal(+v)} period`),
 	}
 
 	if (hasData(rows, filters)) {
