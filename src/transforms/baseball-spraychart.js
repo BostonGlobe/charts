@@ -30,7 +30,7 @@ const hed = ({ rows = [], filters = {} }) => {
 	return [
 		(batter && batter.value) ||
 			(batterTeamNickname && batterTeamNickname.value),
-		year
+		year,
 	].join(', ')
 
 }

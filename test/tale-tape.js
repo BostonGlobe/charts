@@ -7,14 +7,14 @@ import { decode } from 'ent'
 describe('taleTape', () => {
 
 	it('hed should handle no players', () =>
-		 expect(taleTape.hed({
-			 filters: {
-				 eventA: {
-					 key: 'event',
-					 value: 'Out',
-				 },
-			 },
-		 })).to.deep.equal(''))
+		expect(taleTape.hed({
+			filters: {
+				eventA: {
+					key: 'event',
+					value: 'Out',
+				},
+			},
+		})).to.deep.equal(''))
 
 	it('hed should handle players', () =>
 		expect(decode(taleTape.hed({
