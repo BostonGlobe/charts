@@ -1,8 +1,8 @@
 export default (rows) => {
 	const sorted = rows
 		.map(r => r)
-		.sort((a, b) => (new Date(a.gameDateTime)) - (new Date(b.gameDateTime)))
-	const latest = sorted.pop().gameDateTime
+		.sort((a, b) => (new Date(b.gameDateTime)) - (new Date(a.gameDateTime)))
+	const latest = sorted[0].gameDateTime
 
 	const dateString = new Date(latest).toDateString()
 	const split = dateString.split(' ')
