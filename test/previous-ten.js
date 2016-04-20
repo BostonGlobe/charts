@@ -13,7 +13,7 @@ describe('previousTen', () => {
 		expect(previousTen.hed({
 			sport: 'baseball',
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Red Sox',
 				},

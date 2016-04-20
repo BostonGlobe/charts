@@ -25,7 +25,7 @@ describe('baseball', () => {
 		expect(baseballSpraychart.hed({
 			rows: input.rows,
 			filters: {
-				team: {
+				teamA: {
 					key: 'batterTeamNickname',
 					value: 'Red Sox',
 				},
@@ -36,7 +36,7 @@ describe('baseball', () => {
 		expect(baseballSpraychart.hed({
 			rows: input.rows,
 			filters: {
-				batter: {
+				batterA: {
 					key: 'batter',
 					value: 'David Ortiz',
 				},
@@ -50,7 +50,7 @@ describe('baseball', () => {
 	it('subhed should handle event filter', () =>
 		expect(baseballSpraychart.subhed({
 			filters: {
-				event: {
+				eventA: {
 					key: 'event',
 					value: 'Home run',
 				},

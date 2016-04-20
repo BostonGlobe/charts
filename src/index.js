@@ -15,3 +15,6 @@ export { default as pointDifferential }
 
 export { default as previousTen }
 	from './transforms/previous-ten.js'
+
+export { default as taleTape }
+	from './transforms/tale-tape.js'

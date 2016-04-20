@@ -13,7 +13,7 @@ describe('pointDifferential', () => {
 		expect(pointDifferential.hed({
 			sport: 'baseball',
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Red Sox',
 				},
@@ -24,7 +24,7 @@ describe('pointDifferential', () => {
 		expect(pointDifferential.hed({
 			sport: 'basketball',
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Celtics',
 				},

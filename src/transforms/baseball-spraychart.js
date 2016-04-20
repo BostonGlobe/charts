@@ -1,4 +1,4 @@
-import formatFilters from './../utils/formatFilters.js'
+import filtersToArray from './../utils/filtersToArray.js'
 
 const requiredFields = [
 	'event',
@@ -12,9 +12,13 @@ const hed = ({ rows = [], filters = {} }) => {
 
 	// hed format is going to be:
 	// {team/batter}, season year
-	const filtersMap = formatFilters(filters)
+	const filtersArray = filtersToArray(filters)
 
-	const { batter, batterTeamNickname } = filtersMap
+	const batter = filtersArray
+		.find(f => f.key === 'batter')
+
+	const batterTeamNickname = filtersArray
+		.find(f => f.key === 'batterTeamNickname')
 
 	const { gameDateTime } = rows[0] || {}
 
@@ -23,7 +27,11 @@ const hed = ({ rows = [], filters = {} }) => {
 
 	const year = (new Date(gameDateTime)).getFullYear()
 
-	return `${batter || batterTeamNickname}, ${year}`
+	return [
+		(batter && batter.value) ||
+			(batterTeamNickname && batterTeamNickname.value),
+		year
+	].join(', ')
 
 }
 
@@ -32,9 +40,10 @@ const subhed = ({ filters = {} }) => {
 	// subhed format is going to be the list of filters
 	// with optional prefixes
 
-	const filtersMap = formatFilters(filters)
+	const filtersArray = filtersToArray(filters)
 
-	const { event } = filtersMap
+	const event = filtersArray
+		.find(f => f.key === 'event')
 
 	const events = {
 		Double: 'Doubles',
@@ -47,7 +56,7 @@ const subhed = ({ filters = {} }) => {
 		none: 'All hits',
 	}
 
-	return events[event || 'none']
+	return events[(event && event.value) || 'none']
 
 }
 

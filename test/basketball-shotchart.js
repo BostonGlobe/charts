@@ -25,7 +25,7 @@ describe('basketball', () => {
 		expect(basketballShotchart.hed({
 			rows: input.rows,
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Hawks',
 				},
@@ -36,7 +36,7 @@ describe('basketball', () => {
 		expect(basketballShotchart.hed({
 			rows: input.rows,
 			filters: {
-				player: {
+				playerA: {
 					key: 'player',
 					value: 'Paul Millsap',
 				},
@@ -51,7 +51,7 @@ describe('basketball', () => {
 		expect(basketballShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Hawks',
 				},

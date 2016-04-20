@@ -1,18 +1,19 @@
-import formatFilters from './../utils/formatFilters.js'
+import filtersToArray from './../utils/filtersToArray.js'
 import numbersToWords from './../utils/numbersToWords.js'
 
 const hed = ({ filters = {} }) => {
 
 	// hed format is going to be:
 	// {team/batter}, season year
-	const filtersMap = formatFilters(filters)
+	const filtersArray = filtersToArray(filters)
 
-	const { teamNickname } = filtersMap
+	const teamNickname = filtersArray
+		.find(f => f.key === 'teamNickname')
 
 	// we must have a teamNickname
 	if (!teamNickname) return ''
 
-	return `${teamNickname}`
+	return `${teamNickname.value}`
 
 }
 

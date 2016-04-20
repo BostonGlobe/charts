@@ -25,7 +25,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.hed({
 			rows: input.rows,
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Bruins',
 				},
@@ -36,7 +36,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.hed({
 			rows: input.rows,
 			filters: {
-				player: {
+				playerA: {
 					key: 'player',
 					value: 'Torey Krug',
 				},
@@ -51,7 +51,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				team: {
+				teamA: {
 					key: 'teamNickname',
 					value: 'Bruins',
 				},
@@ -62,7 +62,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				home: {
+				homeA: {
 					key: 'home',
 					value: false,
 				},
@@ -73,7 +73,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				powerPlay: {
+				powerPlayA: {
 					key: 'powerPlay',
 					value: true,
 				},
@@ -84,7 +84,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				opponent: {
+				opponentA: {
 					key: 'opponentNickname',
 					value: 'Jets',
 				},
@@ -95,7 +95,7 @@ describe('hockey', () => {
 		expect(hockeyShotchart.subhed({
 			rows: input.rows,
 			filters: {
-				period: {
+				periodA: {
 					key: 'period',
 					value: '1',
 				},

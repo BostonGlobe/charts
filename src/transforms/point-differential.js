@@ -1,4 +1,4 @@
-import formatFilters from './../utils/formatFilters.js'
+import filtersToArray from './../utils/filtersToArray.js'
 import numbersToWords from './../utils/numbersToWords.js'
 
 const options = {
@@ -9,16 +9,17 @@ const hed = ({ filters = {}, sport }) => {
 
 	// hed format is going to be:
 	// {team/batter}, season year
-	const filtersMap = formatFilters(filters)
+	const filtersArray = filtersToArray(filters)
 
-	const { teamNickname } = filtersMap
+	const teamNickname = filtersArray
+		.find(f => f.key === 'teamNickname')
 
 	// we must have a teamNickname
 	if (!teamNickname) return ''
 
 	const type = options[sport] || 'point'
 
-	return `${teamNickname}: ${type} differential`
+	return `${teamNickname.value}: ${type} differential`
 
 }
 
