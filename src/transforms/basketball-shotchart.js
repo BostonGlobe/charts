@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 const getLatestDate = (rows) => {
 	const sorted = rows
 		.map(r => r)
@@ -55,19 +53,15 @@ const subhed = ({ rows = [], filters = {} }) => {
 	return ''
 }
 
-const trimData = (data) => ({
-	...data,
-	rows: data.rows.map(row =>
-		_.pick(row, [
-			'gameDate',
-			'x',
-			'y',
-			'made',
-		])),
-})
+const requiredFields = [
+	'shotX',
+	'shotY',
+	'made',
+	'zone',
+]
 
 export default {
 	hed,
 	subhed,
-	trimData,
+	requiredFields,
 }
