@@ -1,18 +1,5 @@
-import _ from 'lodash'
-
-const getLatestDate = (rows) => {
-	const sorted = rows
-		.map(r => r)
-		.sort((a, b) => (new Date(a.gameDateTime)) - (new Date(b.gameDateTime)))
-	const latest = sorted.pop().gameDateTime
-
-	const dateString = new Date(latest).toDateString()
-	const split = dateString.split(' ')
-	const output = `${split[1]}. ${+split[2]}`
-	return output
-}
-
-const hasData = (rows, filters) => rows.length && Object.keys(filters).length
+import getLatestDate from '../utils/getLatestDate'
+import hasData from '../utils/hasData'
 
 const hed = ({ rows = [], filters = {} }) => {
 	if (hasData(rows, filters)) {
@@ -55,19 +42,14 @@ const subhed = ({ rows = [], filters = {} }) => {
 	return ''
 }
 
-const trimData = (data) => ({
-	...data,
-	rows: data.rows.map(row =>
-		_.pick(row, [
-			'gameDate',
-			'x',
-			'y',
-			'made',
-		])),
-})
+const requiredFields = [
+	'playerX',
+	'playerY',
+	'made',
+]
 
 export default {
 	hed,
 	subhed,
-	trimData,
+	requiredFields,
 }
