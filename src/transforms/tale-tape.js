@@ -7,7 +7,7 @@ const hed = ({ filters = {} }) => {
 	// player vs player
 	const filtersArray = filtersToArray(filters)
 
-	const players = filtersArray.filter(f => f.key === 'player')
+	const players = filtersArray.filter(f => f.key === 'playerName')
 
 	// we must have players
 	if (!players.length) return ''

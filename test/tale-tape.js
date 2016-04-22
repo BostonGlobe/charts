@@ -20,11 +20,11 @@ describe('taleTape', () => {
 		expect(decode(taleTape.hed({
 			filters: {
 				playerA: {
-					key: 'player',
+					key: 'playerName',
 					value: 'Player One',
 				},
 				playerB: {
-					key: 'player',
+					key: 'playerName',
 					value: 'Player Two',
 				},
 			},
