@@ -1,4 +1,5 @@
 /* global describe, it, afterEach */
+/* eslint-disable max-len */
 
 import { expect } from 'chai'
 import { taleTape } from './../src/index.js'
@@ -28,7 +29,7 @@ describe('taleTape', () => {
 					value: 'Player Two',
 				},
 			},
-		}))).to.deep.equal("<span>Player One</span><span class='vs'>vs</span><span>Player Two</span>"))
+		}))).to.deep.equal("<span class='player'>Player One</span><span class='vs'>vs</span><span class='player'>Player Two</span>"))
 
 })
 

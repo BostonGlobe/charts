@@ -13,7 +13,7 @@ const hed = ({ filters = {} }) => {
 	if (!players.length) return ''
 
 	return encode(players
-		.map(p => `<span>${p.value}</span>`)
+		.map(p => `<span class='player'>${p.value}</span>`)
 		.join("<span class='vs'>vs</span>"))
 
 }
