@@ -1,5 +1,6 @@
 import filtersToArray from './../utils/filtersToArray.js'
 import { encode } from 'ent'
+import _ from 'lodash'
 
 const hed = ({ filters = {} }) => {
 
@@ -18,7 +19,21 @@ const hed = ({ filters = {} }) => {
 
 }
 
-export default {
-	hed,
+const transform = ({ filters = {}, rows = [], groupBy = '' }) => {
+
+	// get filter batters
+	const names = _(filters)
+		.map(value => value)
+		.map('value')
+		.value()
+
+	return _(rows)
+		.sortBy(d => _.indexOf(names, d[groupBy]))
+		.value()
+
 }
 
+export default {
+	hed,
+	transform,
+}
