@@ -1,6 +1,3 @@
-export { default as convertRows }
-	from './utils/convertRows.js'
-
 export { default as baseballSpraychart }
 	from './transforms/baseball-spraychart.js'
 
