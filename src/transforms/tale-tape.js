@@ -27,9 +27,9 @@ const transform = ({ filters = {}, rows = [], groupBy = '' }) => {
 		.map('value')
 		.value()
 
-	return _(rows)
-		.sortBy(d => _.indexOf(names, d[groupBy]))
-		.value()
+	return {
+		rows: _.sortBy(rows, d => _.indexOf(names, d[groupBy])),
+	}
 
 }
 

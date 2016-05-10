@@ -30,24 +30,26 @@ describe('taleTape', () => {
 					_type: 'baseball-spraychart',
 				},
 			},
-		})).to.deep.equal([
-			{
-				_type: 'baseball-spraychart',
-				balls: '1',
-				batter: 'Dustin Pedroia',
-				id: 'AVQ0UvNk9ilYSCdakois',
-				outs: '1',
-				strikes: '1',
-			},
-			{
-				_type: 'baseball-spraychart',
-				balls: '0',
-				batter: 'David Ortiz',
-				id: 'AVQ0UvNl9ilYSCdako3c',
-				outs: '3',
-				strikes: '1',
-			},
-		])
+		})).to.deep.equal({
+			rows: [
+				{
+					_type: 'baseball-spraychart',
+					balls: '1',
+					batter: 'Dustin Pedroia',
+					id: 'AVQ0UvNk9ilYSCdakois',
+					outs: '1',
+					strikes: '1',
+				},
+				{
+					_type: 'baseball-spraychart',
+					balls: '0',
+					batter: 'David Ortiz',
+					id: 'AVQ0UvNl9ilYSCdako3c',
+					outs: '3',
+					strikes: '1',
+				},
+			],
+		})
 	})
 
 	it('hed should handle no players', () =>
